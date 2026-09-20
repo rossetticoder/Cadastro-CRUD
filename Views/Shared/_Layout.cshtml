@@ -12,9 +12,9 @@
             <a class="brand-block" asp-controller="Home" asp-action="Index" aria-label="Ativa, início"><span class="brand-mark">a<span>✳</span></span><span class="brand-title">ativa<small>GESTÃO DE ALUNOS</small></span></a>
             <div class="nav-label">GERAL</div>
             <nav class="app-nav" aria-label="Navegação principal">
-                <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"><span class="nav-icon">▦</span> Visão geral</a>
-                <a asp-controller="Usuarios" asp-action="Index" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Usuarios" && ViewContext.RouteData.Values["action"]?.ToString() != "Create" ? "active" : "")"><span class="nav-icon">♙</span> Alunos</a>
-                <a asp-controller="Usuarios" asp-action="Create" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Create" ? "active" : "")"><span class="nav-icon">⊞</span> Novo cadastro</a>
+                <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"><span class="nav-icon icon-overview" aria-hidden="true"></span> Visão geral</a>
+                <a asp-controller="Usuarios" asp-action="Index" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Usuarios" && ViewContext.RouteData.Values["action"]?.ToString() != "Create" ? "active" : "")"><span class="nav-icon icon-students" aria-hidden="true"></span> Alunos</a>
+                <a asp-controller="Usuarios" asp-action="Create" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Create" ? "active" : "")"><span class="nav-icon icon-new" aria-hidden="true"></span> Novo cadastro</a>
             </nav>
             <div class="sidebar-promo"><span>✳</span><strong>Uma rotina<br />mais leve.</strong><p>Todos os alunos em um só lugar.</p></div>
             <div class="sidebar-footer">ATIVA / VERSÃO DE DEMONSTRAÇÃO</div>

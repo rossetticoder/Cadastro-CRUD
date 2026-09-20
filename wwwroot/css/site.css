@@ -12,3 +12,8 @@
 @media(max-width:800px){.app-shell{grid-template-columns:1fr}.app-sidebar{min-height:0;padding:14px 20px;display:block}.brand-block{padding:0 0 12px}.nav-label,.sidebar-promo,.sidebar-footer{display:none}.app-nav{flex-direction:row;overflow-x:auto}.app-nav a{white-space:nowrap;padding:9px 11px;font-size:.72rem}.app-main{padding:0 22px 35px}.topbar{height:55px;margin-bottom:25px}.metric-grid{gap:10px}}
 @media(max-width:620px){.dashboard-heading{align-items:flex-start;flex-direction:column}.metric-grid{grid-template-columns:1fr}.metric-card{min-height:145px}.quick-panel{display:block}.quick-panel>a{margin-top:8px}.page-head{align-items:flex-start;flex-direction:column}.field-row,.record-row{grid-template-columns:1fr;gap:5px}.field-label{padding:0}.form-panel,.record-sheet{padding:5px 17px}.recent-date{display:none}}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #8b6b10;outline-offset:3px}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.app-nav .nav-icon{display:block;flex:0 0 18px;width:18px;height:18px;background-color:currentColor;opacity:.85;mask-repeat:no-repeat;mask-position:center;mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;-webkit-mask-size:contain}
+.app-nav a:hover .nav-icon,.app-nav a.active .nav-icon{opacity:1}
+.icon-overview{mask-image:url('../icons/rede.svg');-webkit-mask-image:url('../icons/rede.svg')}
+.icon-students{mask-image:url('../icons/do-utilizador.svg');-webkit-mask-image:url('../icons/do-utilizador.svg')}
+.icon-new{mask-image:url('../icons/editar.svg');-webkit-mask-image:url('../icons/editar.svg')}
