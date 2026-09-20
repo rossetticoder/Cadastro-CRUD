@@ -1,37 +1,21 @@
-@{
-    ViewData["Title"] = "Início";
-}
-
-<h1>Sistema de Cadastro de Usuários</h1>
-<p class="hero-lead">
-    Um CRUD completo — criar, consultar, atualizar e excluir usuários — construído em C#
-    para o seminário de comparação de tecnologias web.
-</p>
-
-<dl class="spec-panel">
-    <div class="spec-row">
-        <dt>Linguagem</dt>
-        <dd>C# 12</dd>
+@{ ViewData["Title"] = "Visão geral"; }
+<section class="hero-card">
+    <div class="hero-copy">
+        <span class="eyebrow">GESTÃO DE ALUNOS · ACADEMIA</span>
+        <h1>Gente em movimento.<br /><em>Cadastro em dia.</em></h1>
+        <p>Organize os dados dos alunos em um só lugar. Cadastre, encontre, atualize e consulte informações com rapidez na rotina da recepção.</p>
+        <div class="hero-actions">
+            <a class="btn-cs btn-cs-primary" asp-controller="Usuarios" asp-action="Create">Cadastrar aluno <span aria-hidden="true">↗</span></a>
+            <a class="btn-cs btn-cs-ghost" asp-controller="Usuarios" asp-action="Index">Ver cadastros <span aria-hidden="true">→</span></a>
+        </div>
     </div>
-    <div class="spec-row">
-        <dt>Framework</dt>
-        <dd>ASP.NET Core MVC</dd>
+    <div class="hero-art" aria-hidden="true"><div class="art-ring art-ring-one"></div><div class="art-ring art-ring-two"></div><div class="art-core">A<span>+</span></div><span class="art-caption">MOVIMENTO COMEÇA AQUI</span></div>
+</section>
+<section class="overview-section">
+    <div class="section-heading"><span class="eyebrow">ROTINA SIMPLES</span><h2>O essencial para a recepção</h2></div>
+    <div class="feature-grid">
+        <article class="feature-card"><span class="feature-number">01</span><div class="feature-icon">＋</div><h3>Cadastre</h3><p>Registre nome, contato e data de nascimento de cada aluno.</p></article>
+        <article class="feature-card"><span class="feature-number">02</span><div class="feature-icon">⌕</div><h3>Encontre</h3><p>Busque por nome ou e-mail e consulte o cadastro completo.</p></article>
+        <article class="feature-card"><span class="feature-number">03</span><div class="feature-icon">↗</div><h3>Mantenha atualizado</h3><p>Corrija dados quando necessário e remova registros pela lista.</p></article>
     </div>
-    <div class="spec-row">
-        <dt>ORM</dt>
-        <dd>Entity Framework Core</dd>
-    </div>
-    <div class="spec-row">
-        <dt>Banco de dados</dt>
-        <dd>SQLite</dd>
-    </div>
-    <div class="spec-row">
-        <dt>Operações</dt>
-        <dd>Create · Read · Update · Delete</dd>
-    </div>
-</dl>
-
-<div class="hero-actions">
-    <a class="btn-cs btn-cs-primary" asp-controller="Usuarios" asp-action="Index">Ver usuários cadastrados</a>
-    <a class="btn-cs btn-cs-outline" asp-controller="Usuarios" asp-action="Create">Cadastrar novo usuário</a>
-</div>
+</section>

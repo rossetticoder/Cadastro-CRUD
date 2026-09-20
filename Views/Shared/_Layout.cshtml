@@ -3,39 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] · Cadastro de Usuários</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>@ViewData["Title"] · Ativa</title>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <div class="app-shell">
         <aside class="app-sidebar">
-            <div class="brand-block">
-                <a asp-controller="Home" asp-action="Index">
-                    <span class="brand-mark">C<small>#</small></span>
-                </a>
-                <div class="brand-title">Cadastro de Usuários</div>
-            </div>
-
-            <nav class="app-nav">
-                <a asp-controller="Home" asp-action="Index">Início</a>
-                <a asp-controller="Usuarios" asp-action="Index">Usuários</a>
-                <a asp-controller="Usuarios" asp-action="Create">Novo usuário</a>
+            <a class="brand-block" asp-controller="Home" asp-action="Index" aria-label="Ativa, início"><span class="brand-mark">A<span class="brand-plus">+</span></span><span class="brand-title">ATIVA<span> / gestão</span></span></a>
+            <div class="nav-label">MENU PRINCIPAL</div>
+            <nav class="app-nav" aria-label="Navegação principal">
+                <a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"><span class="nav-icon">◫</span> Visão geral</a>
+                <a asp-controller="Usuarios" asp-action="Index" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Usuarios" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"><span class="nav-icon">☷</span> Alunos</a>
+                <a asp-controller="Usuarios" asp-action="Create" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Create" ? "active" : "")"><span class="nav-icon">＋</span> Novo cadastro</a>
             </nav>
+            <div class="sidebar-footer"><span class="footer-dot"></span> ORGANIZAÇÃO EM MOVIMENTO <small>Cadastro de alunos · versão de demonstração</small></div>
         </aside>
-
         <div class="app-main">
+            <header class="topbar"><span>PAINEL / @ViewData["Title"]</span><span class="topbar-badge">ATIVA <b>●</b></span></header>
             @if (TempData["Mensagem"] != null)
             {
-                <div class="flash">
-                    <span>@TempData["Mensagem"]</span>
-                    <button type="button" onclick="this.closest('.flash').remove()" aria-label="Fechar aviso">&times;</button>
-                </div>
+                <div class="flash" role="status"><span>@TempData["Mensagem"]</span><button type="button" onclick="this.closest('.flash').remove()" aria-label="Fechar aviso">&times;</button></div>
             }
-            @RenderBody()
+            <main>@RenderBody()</main>
         </div>
     </div>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

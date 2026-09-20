@@ -64,7 +64,7 @@ namespace CadastroUsuariosApp.Controllers
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
 
-                TempData["Mensagem"] = "Usuário cadastrado com sucesso!";
+                TempData["Mensagem"] = "Aluno cadastrado com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -119,7 +119,7 @@ namespace CadastroUsuariosApp.Controllers
                     }
 
                     await _context.SaveChangesAsync();
-                    TempData["Mensagem"] = "Usuário atualizado com sucesso!";
+                    TempData["Mensagem"] = "Aluno atualizado com sucesso!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -154,10 +154,11 @@ namespace CadastroUsuariosApp.Controllers
             {
                 _context.Usuarios.Remove(usuario);
                 await _context.SaveChangesAsync();
-                TempData["Mensagem"] = "Usuário excluído com sucesso!";
+                TempData["Mensagem"] = "Aluno excluído com sucesso!";
             }
 
             return RedirectToAction(nameof(Index));
         }
     }
 }
+

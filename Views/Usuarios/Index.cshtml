@@ -1,16 +1,16 @@
 @model IEnumerable<Usuario>
 
 @{
-    ViewData["Title"] = "Usuários";
+    ViewData["Title"] = "Alunos";
 }
 
 <div class="page-head">
     <div>
-        <h1>Usuários cadastrados</h1>
-        <p>Consulte, edite ou remova os registros do CRUD.</p>
+        <h1>Alunos cadastrados</h1>
+        <p>Consulte e mantenha os dados dos alunos atualizados.</p>
     </div>
     <div class="actions">
-        <a asp-action="Create" class="btn-cs btn-cs-primary">+ Novo usuário</a>
+        <a asp-action="Create" class="btn-cs btn-cs-primary">+ Novo aluno</a>
     </div>
 </div>
 
@@ -23,8 +23,8 @@
 @if (!Model.Any())
 {
     <div class="empty-state">
-        <h2>Nenhum usuário encontrado</h2>
-        <p>Cadastre o primeiro usuário para começar.</p>
+        <h2>Nenhum aluno encontrado</h2>
+        <p>Cadastre o primeiro aluno para começar.</p>
     </div>
 }
 else
@@ -61,3 +61,5 @@ else
         </tbody>
     </table>
 }
+
+
