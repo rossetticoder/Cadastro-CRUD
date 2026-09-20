@@ -1,0 +1,79 @@
+@model Usuario
+
+@{
+    ViewData["Title"] = "Novo Usuário";
+}
+
+<div class="page-head">
+    <h1>Cadastrar novo usuário</h1>
+</div>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="validation-summary-cs"></div>
+
+    <div class="form-panel">
+        <div class="field-row">
+            <label asp-for="Nome" class="field-label">
+                Nome
+                <span class="field-type">texto</span>
+            </label>
+            <div>
+                <input asp-for="Nome" class="cs-input" autocomplete="name" />
+                <span asp-validation-for="Nome" class="field-error"></span>
+            </div>
+        </div>
+
+        <div class="field-row">
+            <label asp-for="Email" class="field-label">
+                Email
+                <span class="field-type">email</span>
+            </label>
+            <div>
+                <input asp-for="Email" class="cs-input" type="email" autocomplete="email" />
+                <span asp-validation-for="Email" class="field-error"></span>
+            </div>
+        </div>
+
+        <div class="field-row">
+            <label asp-for="Senha" class="field-label">
+                Senha
+                <span class="field-type">texto · mascarado</span>
+            </label>
+            <div>
+                <input asp-for="Senha" class="cs-input" type="password" autocomplete="new-password" />
+                <span asp-validation-for="Senha" class="field-error"></span>
+            </div>
+        </div>
+
+        <div class="field-row">
+            <label asp-for="DataNascimento" class="field-label">
+                Data de nascimento
+                <span class="field-type">data</span>
+            </label>
+            <div>
+                <input asp-for="DataNascimento" class="cs-input" type="date" asp-format="{0:yyyy-MM-dd}" />
+                <span asp-validation-for="DataNascimento" class="field-error"></span>
+            </div>
+        </div>
+
+        <div class="field-row">
+            <label asp-for="Telefone" class="field-label">
+                Telefone
+                <span class="field-type">texto · opcional</span>
+            </label>
+            <div>
+                <input asp-for="Telefone" class="cs-input" type="tel" autocomplete="tel" />
+                <span asp-validation-for="Telefone" class="field-error"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-footer">
+        <button type="submit" class="btn-cs btn-cs-primary">Salvar</button>
+        <a asp-action="Index" class="btn-cs btn-cs-outline">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

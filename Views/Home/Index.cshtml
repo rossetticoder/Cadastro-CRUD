@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Início";
+}
+
+<h1>Sistema de Cadastro de Usuários</h1>
+<p class="hero-lead">
+    Um CRUD completo — criar, consultar, atualizar e excluir usuários — construído em C#
+    para o seminário de comparação de tecnologias web.
+</p>
+
+<dl class="spec-panel">
+    <div class="spec-row">
+        <dt>Linguagem</dt>
+        <dd>C# 12</dd>
+    </div>
+    <div class="spec-row">
+        <dt>Framework</dt>
+        <dd>ASP.NET Core MVC</dd>
+    </div>
+    <div class="spec-row">
+        <dt>ORM</dt>
+        <dd>Entity Framework Core</dd>
+    </div>
+    <div class="spec-row">
+        <dt>Banco de dados</dt>
+        <dd>SQLite</dd>
+    </div>
+    <div class="spec-row">
+        <dt>Operações</dt>
+        <dd>Create · Read · Update · Delete</dd>
+    </div>
+</dl>
+
+<div class="hero-actions">
+    <a class="btn-cs btn-cs-primary" asp-controller="Usuarios" asp-action="Index">Ver usuários cadastrados</a>
+    <a class="btn-cs btn-cs-outline" asp-controller="Usuarios" asp-action="Create">Cadastrar novo usuário</a>
+</div>

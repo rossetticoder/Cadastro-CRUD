@@ -1,0 +1,36 @@
+@model Usuario
+
+@{
+    ViewData["Title"] = "Excluir Usuário";
+}
+
+<div class="page-head">
+    <h1>Excluir usuário</h1>
+</div>
+
+<div class="danger-notice">
+    Tem certeza de que deseja excluir <strong>@Model.Nome</strong>? Esta ação não pode ser desfeita.
+</div>
+
+<dl class="record-sheet">
+    <div class="record-row">
+        <dt>@Html.DisplayNameFor(m => m.Nome)</dt>
+        <dd>@Model.Nome</dd>
+    </div>
+    <div class="record-row">
+        <dt>@Html.DisplayNameFor(m => m.Email)</dt>
+        <dd>@Model.Email</dd>
+    </div>
+    <div class="record-row mono">
+        <dt>@Html.DisplayNameFor(m => m.DataNascimento)</dt>
+        <dd>@Model.DataNascimento.ToString("dd/MM/yyyy")</dd>
+    </div>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-footer">
+        <button type="submit" class="btn-cs btn-cs-danger">Confirmar exclusão</button>
+        <a asp-action="Index" class="btn-cs btn-cs-outline">Cancelar</a>
+    </div>
+</form>

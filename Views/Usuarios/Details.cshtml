@@ -1,0 +1,33 @@
+@model Usuario
+
+@{
+    ViewData["Title"] = "Detalhes do Usuário";
+}
+
+<div class="page-head">
+    <h1>@Model.Nome</h1>
+</div>
+
+<dl class="record-sheet">
+    <div class="record-row">
+        <dt>@Html.DisplayNameFor(m => m.Email)</dt>
+        <dd>@Model.Email</dd>
+    </div>
+    <div class="record-row">
+        <dt>@Html.DisplayNameFor(m => m.Telefone)</dt>
+        <dd>@(Model.Telefone ?? "—")</dd>
+    </div>
+    <div class="record-row mono">
+        <dt>@Html.DisplayNameFor(m => m.DataNascimento)</dt>
+        <dd>@Model.DataNascimento.ToString("dd/MM/yyyy")</dd>
+    </div>
+    <div class="record-row mono">
+        <dt>@Html.DisplayNameFor(m => m.DataCadastro)</dt>
+        <dd>@Model.DataCadastro.ToString("dd/MM/yyyy HH:mm")</dd>
+    </div>
+</dl>
+
+<div class="form-footer">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-cs btn-cs-warning">Editar</a>
+    <a asp-action="Index" class="btn-cs btn-cs-outline">Voltar à lista</a>
+</div>

@@ -1,0 +1,63 @@
+@model IEnumerable<Usuario>
+
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<div class="page-head">
+    <div>
+        <h1>Usuários cadastrados</h1>
+        <p>Consulte, edite ou remova os registros do CRUD.</p>
+    </div>
+    <div class="actions">
+        <a asp-action="Create" class="btn-cs btn-cs-primary">+ Novo usuário</a>
+    </div>
+</div>
+
+<form asp-action="Index" method="get" class="hero-actions" style="margin-bottom: 1.75rem;">
+    <input type="text" name="busca" value="@ViewData["Busca"]" class="cs-input" style="max-width: 320px;" placeholder="Buscar por nome ou e-mail" />
+    <button type="submit" class="btn-cs btn-cs-outline">Buscar</button>
+    <a asp-action="Index" class="btn-cs btn-cs-outline">Limpar</a>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="empty-state">
+        <h2>Nenhum usuário encontrado</h2>
+        <p>Cadastre o primeiro usuário para começar.</p>
+    </div>
+}
+else
+{
+    <table class="table-cs">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.Nome)</th>
+                <th>@Html.DisplayNameFor(m => m.Email)</th>
+                <th>@Html.DisplayNameFor(m => m.Telefone)</th>
+                <th>@Html.DisplayNameFor(m => m.DataNascimento)</th>
+                <th>@Html.DisplayNameFor(m => m.DataCadastro)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Nome</td>
+                    <td class="mono">@item.Email</td>
+                    <td>@(item.Telefone ?? "-")</td>
+                    <td>@item.DataNascimento.ToString("dd/MM/yyyy")</td>
+                    <td class="mono">@item.DataCadastro.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>
+                        <div class="row-actions">
+                            <a asp-action="Details" asp-route-id="@item.Id">Ver</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
