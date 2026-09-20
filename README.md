@@ -21,14 +21,7 @@ Server exige apenas mudar a connection string e o pacote NuGet
 
 ## Design
 
-O visual não usa Bootstrap — é um design system próprio ("ficha técnica"), com layout de
-sidebar fixa, tipografia Space Grotesk/Inter/IBM Plex Mono e paleta roxa. Todo o CSS está em
-`wwwroot/css/site.css`; as classes principais são: `app-shell`, `app-sidebar`, `app-main`,
-`page-head`, `table-cs`, `form-panel`, `field-row`, `record-sheet`, `btn-cs`
-(+ `-primary`/`-outline`/`-danger`/`-warning`).
-
-Na tela de edição, a senha nunca é reexibida (só o hash existe no banco): o campo "Nova senha"
-é opcional e só troca a senha se for preenchido.
+A interface **Ativa** adapta o cadastro para a rotina de uma academia. O painel inicial mostra totais reais de alunos, cadastros dos últimos 30 dias, registros sem telefone e os cinco cadastros mais recentes. A navegação usa uma barra lateral escura e cartões em cores suaves. O layout é responsivo.
 
 ## Estrutura do projeto
 
@@ -83,3 +76,4 @@ na primeira execução, já com a tabela de usuários.
 - `db.Database.EnsureCreated()` em `Program.cs` cria o banco automaticamente sem precisar rodar
   migrations manualmente — ótimo para demonstração; em um projeto maior, usaria-se
   `dotnet ef migrations add` + `dotnet ef database update`.
+

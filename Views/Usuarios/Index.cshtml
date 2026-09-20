@@ -14,8 +14,8 @@
     </div>
 </div>
 
-<form asp-action="Index" method="get" class="hero-actions" style="margin-bottom: 1.75rem;">
-    <input type="text" name="busca" value="@ViewData["Busca"]" class="cs-input" style="max-width: 320px;" placeholder="Buscar por nome ou e-mail" />
+<form asp-action="Index" method="get" class="hero-actions search-bar">
+    <input type="text" name="busca" value="@ViewData["Busca"]" class="cs-input" style="max-width: 320px;" placeholder="Buscar por nome ou e-mail" aria-label="Buscar por nome ou e-mail" />
     <button type="submit" class="btn-cs btn-cs-outline">Buscar</button>
     <a asp-action="Index" class="btn-cs btn-cs-outline">Limpar</a>
 </form>

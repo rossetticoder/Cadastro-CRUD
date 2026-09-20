@@ -1,21 +1,66 @@
-@{ ViewData["Title"] = "Visão geral"; }
-<section class="hero-card">
-    <div class="hero-copy">
-        <span class="eyebrow">GESTÃO DE ALUNOS · ACADEMIA</span>
-        <h1>Gente em movimento.<br /><em>Cadastro em dia.</em></h1>
-        <p>Organize os dados dos alunos em um só lugar. Cadastre, encontre, atualize e consulte informações com rapidez na rotina da recepção.</p>
-        <div class="hero-actions">
-            <a class="btn-cs btn-cs-primary" asp-controller="Usuarios" asp-action="Create">Cadastrar aluno <span aria-hidden="true">↗</span></a>
-            <a class="btn-cs btn-cs-ghost" asp-controller="Usuarios" asp-action="Index">Ver cadastros <span aria-hidden="true">→</span></a>
-        </div>
+@model HomeDashboardViewModel
+@{
+    ViewData["Title"] = "Visão geral";
+}
+
+<div class="dashboard-heading">
+    <div>
+        <span class="eyebrow">PAINEL DE CADASTROS</span>
+        <h1>Olá, equipe Ativa <span class="heading-spark">✳</span></h1>
+        <p>Uma visão simples dos alunos e dos cadastros recentes.</p>
     </div>
-    <div class="hero-art" aria-hidden="true"><div class="art-ring art-ring-one"></div><div class="art-ring art-ring-two"></div><div class="art-core">A<span>+</span></div><span class="art-caption">MOVIMENTO COMEÇA AQUI</span></div>
-</section>
-<section class="overview-section">
-    <div class="section-heading"><span class="eyebrow">ROTINA SIMPLES</span><h2>O essencial para a recepção</h2></div>
-    <div class="feature-grid">
-        <article class="feature-card"><span class="feature-number">01</span><div class="feature-icon">＋</div><h3>Cadastre</h3><p>Registre nome, contato e data de nascimento de cada aluno.</p></article>
-        <article class="feature-card"><span class="feature-number">02</span><div class="feature-icon">⌕</div><h3>Encontre</h3><p>Busque por nome ou e-mail e consulte o cadastro completo.</p></article>
-        <article class="feature-card"><span class="feature-number">03</span><div class="feature-icon">↗</div><h3>Mantenha atualizado</h3><p>Corrija dados quando necessário e remova registros pela lista.</p></article>
-    </div>
-</section>
+    <a class="btn-cs btn-cs-dark" asp-controller="Usuarios" asp-action="Create">＋ Novo aluno</a>
+</div>
+
+<div class="metric-grid">
+    <article class="metric-card metric-yellow">
+        <div class="metric-top"><span>ALUNOS CADASTRADOS</span><span class="metric-symbol">↗</span></div>
+        <strong>@Model.TotalAlunos</strong>
+        <p>Total de registros no sistema</p>
+        <div class="metric-decoration dots"></div>
+    </article>
+    <article class="metric-card metric-pink">
+        <div class="metric-top"><span>NOVOS CADASTROS</span><span class="metric-symbol">＋</span></div>
+        <strong>@Model.NovosUltimos30Dias</strong>
+        <p>Adicionados nos últimos 30 dias</p>
+        <div class="metric-decoration circles"></div>
+    </article>
+    <article class="metric-card metric-lavender">
+        <div class="metric-top"><span>CONTATOS A COMPLETAR</span><span class="metric-symbol">⌁</span></div>
+        <strong>@Model.SemTelefone</strong>
+        <p>Cadastros sem telefone informado</p>
+        <div class="metric-decoration stripes"></div>
+    </article>
+</div>
+
+<div class="dashboard-grid">
+    <section class="recent-panel">
+        <div class="panel-header"><div><span class="eyebrow">ACOMPANHAMENTO</span><h2>Cadastros recentes</h2></div><a asp-controller="Usuarios" asp-action="Index">Ver todos <span aria-hidden="true">→</span></a></div>
+        @if (Model.CadastrosRecentes.Any())
+        {
+            <div class="recent-list">
+                @foreach (var aluno in Model.CadastrosRecentes)
+                {
+                    <a class="recent-item" asp-controller="Usuarios" asp-action="Details" asp-route-id="@aluno.Id">
+                        <span class="avatar">@aluno.Nome.Substring(0, 1).ToUpper()</span>
+                        <span class="recent-person"><strong>@aluno.Nome</strong><small>@aluno.Email</small></span>
+                        <span class="recent-date">@aluno.DataCadastro.ToString("dd/MM/yyyy")</span>
+                        <span class="recent-arrow">↗</span>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="panel-empty"><span>✳</span><strong>O começo de tudo</strong><p>Os alunos cadastrados aparecerão aqui.</p><a class="btn-cs btn-cs-dark" asp-controller="Usuarios" asp-action="Create">Cadastrar primeiro aluno</a></div>
+        }
+    </section>
+    <aside class="quick-panel">
+        <span class="eyebrow">ACESSO RÁPIDO</span>
+        <h2>Próximo passo?</h2>
+        <p>Encontre um cadastro ou adicione alguém novo à sua lista.</p>
+        <a asp-controller="Usuarios" asp-action="Index"><span class="quick-icon">⌕</span><span>Buscar aluno<small>Nome ou e-mail</small></span><span class="quick-arrow">↗</span></a>
+        <a asp-controller="Usuarios" asp-action="Create"><span class="quick-icon">＋</span><span>Novo cadastro<small>Adicionar aluno</small></span><span class="quick-arrow">↗</span></a>
+        <div class="quick-note">DADOS ORGANIZADOS.<br /><b>ROTINA MAIS LEVE.</b></div>
+    </aside>
+</div>
